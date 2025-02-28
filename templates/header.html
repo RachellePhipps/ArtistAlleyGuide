@@ -1,0 +1,15 @@
+<header>
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <input type="text" placeholder="Search..">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    {% if user.is_authenticated %}
+        <li><a href="/profile/">Account</a></li>
+        <li><a href="/logout/">Logout</a></li>
+    {% else %}
+        <li><a href="/login/">Login</a></li>
+        <li><a href="/register/">Register</a></li>
+{% endif %}
+  </div>
+</header>

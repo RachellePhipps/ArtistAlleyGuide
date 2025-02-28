@@ -1,9 +1,0 @@
-Migration
-python manage.py migrate        
-
-Running the Server
-python manage.py runserver    
-
-
-SOME FILES ARE HIDDEN
-just so I get the hang of what is needed and important

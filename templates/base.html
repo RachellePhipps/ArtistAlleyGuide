@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Artist Alley Guide{% endblock %}</title>
+  {% load static %}
+</head>
+<body>
+  <!--Header Section-->
+    {% include 'header.html' %}
+  <!--main Section-->
+  <main>
+    <img src="https://static01.nyt.com/images/2020/08/02/fashion/25VIRTUAL-ARTIST-ALLEY1/25VIRTUAL-ARTIST-ALLEY1-videoSixteenByNineJumbo1600.jpg" alt="Location Inage">
+    <H1>Find conventions near Norman, OK</H1>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!--Footer section-->
+  {% include 'footer.html' %}
+</body>
+</html>
