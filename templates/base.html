@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}Artist Alley Guide{% endblock %}</title>
   {% load static %}
-</head>
-<body>
-  <!--Header Section-->
-    {% include 'header.html' %}
-  <!--main Section-->
-  <main>
-    <img src="https://static01.nyt.com/images/2020/08/02/fashion/25VIRTUAL-ARTIST-ALLEY1/25VIRTUAL-ARTIST-ALLEY1-videoSixteenByNineJumbo1600.jpg" alt="Location Inage">
-    <H1>Find conventions near Norman, OK</H1>
-    {% block content %}
-    {% endblock %}
-  </main>
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Artist Alley Guide{% endblock %}</title>
+    <link
+      rel="icon"
+      href="{% static 'images/favicon.png' %}"
+      type="image/png"
+    />
+    <!-- Link to Bootstrap CSS (Bootstrap first) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!--Footer section-->
-  {% include 'footer.html' %}
-</body>
+    <!-- Link BASE css file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+
+  </head>
+  <body>
+    <div class="d-flex flex-column min-vh-100">
+      <!--Header Section-->
+      {% include 'header.html' %}
+      <!-- Main Content -->
+      <main class="flex-grow-1 full">{% block content %} {% endblock %}</main>
+      <!--Footer section-->
+      {% include 'footer.html' %}
+    </div>
+  </body>
 </html>

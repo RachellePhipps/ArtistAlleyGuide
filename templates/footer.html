@@ -1,17 +1,66 @@
-<footer>
-    <div class="footer-content">
-        <h3>Artist Alley Guide</h3>
-        <p>Artist Alley Guide is a website for artists looking to find their next artist alley. Look up conventions in your area, filter, and find all the information you need for your next </p>
-    </div>
-    <div class="footer-bottom">
-        <p>Made with ❤️ by Rachelle Phipps for HCI CS-5053</p>
-                <div class="footer-menu">
-                  <ul class="f-menu">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                  </ul>
-                </div>
-    </div>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</footer>
+    <!-- Link header css file -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/footer.css' %}"
+    />
+  </head>
+
+  <body>
+    <!-- Footer -->
+    <footer
+      class="text-center text-white foot-container"
+      style="background-color: #ff8383"
+    >
+      <div class="container">
+        <section class="mt-5">
+          <div class="row text-center justify-content-center pt-5">
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="#!" class="text-white">Get Started</a>
+              </h6>
+            </div>
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="#!" class="text-white">About</a>
+              </h6>
+            </div>
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="#!" class="text-white">Contact</a>
+              </h6>
+            </div>
+          </div>
+        </section>
+
+        <hr class="my-5" />
+
+        <section class="mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+              <p>
+                Artist Alley Guide is a website for artists looking to find
+                their next artist alley. Look up conventions in your area,
+                filter, and find all the information you need for your next
+                event here.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(168, 25, 25, 0.2)"
+      >
+        Made with ❤️ by Rachelle Phipps for HCI CS-5053
+      </div>
+    </footer>
+  </body>
+</html>

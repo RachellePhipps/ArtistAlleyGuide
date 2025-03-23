@@ -1,18 +1,129 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% load static %} {% block content%}
 
-{% block title %}Home{% endblock %}
+  <!--Home image -->
+  <div class="container home-container">
+    <div class="card bg-dark text-white custom-card">
+      <img
+        class="card-img"
+        src="https://static.wixstatic.com/media/01ff0e_af21546cd2194cca831506a62b2676ed~mv2.jpg/v1/fill/w_1500,h_1000,al_c,q_85/01ff0e_af21546cd2194cca831506a62b2676ed~mv2.jpg"
+        alt="Card image"
+      />
+      <div class="card-img-overlay">
+        <h5 class="card-title">Find Your Next Alley Here</h5>
+      </div>
+    </div>
+  </div>
 
-{% include 'header.html' %}
+  <!--card options-->
+  <div class="container mt-5">
+    <h1>Upcoming conventions</h1>
+    <div class="row">
+        {% for con in upcoming_cons %}
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <div class="card-body">
+                      <h2><a href="{% url 'con_detail' con.slug %}">{{ con.name }}</a></h2>
+                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
+                        <p class="card-con_date"> {{ con.con_date }}</p>
+                        <p class="card-website">
+                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No conventions found.</p>
+        {% endfor %}
+    </div>
+  </div>
 
-{% block content %}
-{% if user.is_authenticated %}
-Hi {{ user.username }}!
-<form action="{% url 'logout' %}" method="post">
-  {% csrf_token %}
-  <button type="submit">Log Out</button>
-</form>
-{% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a>
-{% endif %}
+  <div class="container mt-5">
+    <h1>Upcoming General Conventions</h1>
+    <div class="row">
+        {% for con in upcoming_gen_cons %}
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ con.name }}</h5>
+                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
+                        <p class="card-con_date"> {{ con.con_date }}</p>
+                        <p class="card-website">
+                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No conventions found.</p>
+        {% endfor %}
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Upcoming Anime Conventions</h1>
+    <div class="row">
+        {% for con in upcoming_ani_cons %}
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ con.name }}</h5>
+                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
+                        <p class="card-con_date"> {{ con.con_date }}</p>
+                        <p class="card-website">
+                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No conventions found.</p>
+        {% endfor %}
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Upcoming Comic Conventions</h1>
+    <div class="row">
+        {% for con in upcoming_com_cons %}
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ con.name }}</h5>
+                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
+                        <p class="card-con_date"> {{ con.con_date }}</p>
+                        <p class="card-website">
+                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No conventions found.</p>
+        {% endfor %}
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Upcoming Horror Conventions</h1>
+    <div class="row">
+        {% for con in upcoming_hor_cons %}
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ con.name }}</h5>
+                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
+                        <p class="card-con_date"> {{ con.con_date }}</p>
+                        <p class="card-website">
+                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No conventions found.</p>
+        {% endfor %}
+    </div>
+  </div>
+
+
 {% endblock %}
