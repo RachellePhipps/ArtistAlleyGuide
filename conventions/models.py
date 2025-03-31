@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
+
 
 def default_image_urls():
     return ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png"]
@@ -26,13 +28,23 @@ class Convention(models.Model):
     # website
     website = models.CharField(max_length=64)
     # number of attendees
-    num_attend = models.IntegerField()
+    num_attend = models.IntegerField(default=1)
     # con type
     con_type = models.CharField(max_length=1, choices=CON_TYPES, default="G")
 
-    # Con images
-    image_urls = models.JSONField(default=default_image_urls)
+    # Con description
+    description = models.TextField(blank=True, null=True)
 
+    # Con google maps location
+    location = models.TextField(blank=True, null=True)
+
+    # number of days
+    num_days = models.IntegerField(default=1)
+
+    # Convention image 
+    image = models.ImageField(upload_to='images/', default='images/default.png')
+
+    # Artist Stuff
 
     # average apply date
     apply_date = models.DateField()
@@ -46,7 +58,14 @@ class Convention(models.Model):
     # rating
     rating = models.FloatField(null=True, blank=True)
 
+
+    # Convention Center TODO
+
+
     slug = models.SlugField(unique=True, blank=True)  # For URL-friendly name
+
+    # Favorites relationship
+    favorited_by = models.ManyToManyField(User, related_name='favorite_cons', blank=True)
 
     def save(self, *args, **kwargs):
     # Automatically create a slug from the name if it's not set
@@ -56,3 +75,20 @@ class Convention(models.Model):
 
     def __str__(self):
         return self.name
+    
+# Convention images
+class ConventionImage(models.Model):
+    convention = models.ForeignKey(Convention, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='images/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
+# for comments
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    con = models.ForeignKey(Convention, on_delete=models.CASCADE, related_name='comments')
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.con.name}"

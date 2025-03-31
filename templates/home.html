@@ -1,129 +1,97 @@
 {% extends "base.html" %} {% load static %} {% block content%}
 
-  <!--Home image -->
-  <div class="container home-container">
-    <div class="card bg-dark text-white custom-card">
-      <img
-        class="card-img"
-        src="https://static.wixstatic.com/media/01ff0e_af21546cd2194cca831506a62b2676ed~mv2.jpg/v1/fill/w_1500,h_1000,al_c,q_85/01ff0e_af21546cd2194cca831506a62b2676ed~mv2.jpg"
-        alt="Card image"
-      />
-      <div class="card-img-overlay">
-        <h5 class="card-title">Find Your Next Alley Here</h5>
-      </div>
+<!--Home image -->
+<div class="container home-container">
+  <div class="card bg-dark text-white custom-card">
+    <img
+      class="card-img"
+      src="{% static 'images/home.png' %}"
+      alt="Card image"
+    />
+    <div class="card-img-overlay">
+      <h5 class="card-title">Find Your Next Alley Here</h5>
     </div>
   </div>
+</div>
 
-  <!--card options-->
-  <div class="container mt-5">
+<!--card options-->
+<div class="container-fluid con0">
+  <div class="container upcoming-con">
     <h1>Upcoming conventions</h1>
-    <div class="row">
-        {% for con in upcoming_cons %}
-            <div class="col-md-4">
-                <div class="card mb-4" style="width: 18rem;">
-                    <div class="card-body">
-                      <h2><a href="{% url 'con_detail' con.slug %}">{{ con.name }}</a></h2>
-                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
-                        <p class="card-con_date"> {{ con.con_date }}</p>
-                        <p class="card-website">
-                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
-                      </p>
-                    </div>
+    <p>Looking for the latest conventions?</p>
+
+    <div id="conCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        {% for con in upcoming_cons %} {% if forloop.counter0|divisibleby:3 %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="row">
+            {% endif %}
+
+            <div class="col-md-4 mb-3">
+              <div class="card shadow h-100">
+                <img
+                  src="{{ con.image.url }}"
+                  class="card-img-top object-fit-cover"
+                  style="height: 250px"
+                  alt="{{ con.name }}"
+                />
+                <div class="card-body p-2">
+                  <h5 class="card-title mb-1">
+                    <a
+                      href="{% url 'con_detail' con.slug %}"
+                      class="text-body text-decoration-none"
+                    >
+                      {{ con.name }}
+                    </a>
+                  </h5>
+
+                  <div class="con-fav" data-con-id="{{ con.id }}">
+
+                    <button class="favorite-btn" data-con-id="{{ con.id }}">
+                      {% if user in con.favorited_by.all %}
+                        💖
+                      {% else %}
+                        🤍
+                      {% endif %}
+                    </button>
+                  </div>
+
+                  <p class="card-location mb-1 small">
+                    <i class="bi bi-geo-alt-fill"></i> {{ con.city }}, {{ con.state }}
+                  </p>
+                  <p class="card-con_date mb-1 small">
+                    <i class="bi bi-calendar-date"></i> {{ con.con_date }}
+                  </p>
                 </div>
+              </div>
             </div>
-        {% empty %}
-            <p>No conventions found.</p>
+
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+          </div>
+        </div>
+        {% endif %} {% empty %}
+        <p>No conventions found.</p>
         {% endfor %}
+      </div>
+
+      <!-- Carousel controls -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#conCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#conCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
   </div>
-
-  <div class="container mt-5">
-    <h1>Upcoming General Conventions</h1>
-    <div class="row">
-        {% for con in upcoming_gen_cons %}
-            <div class="col-md-4">
-                <div class="card mb-4" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ con.name }}</h5>
-                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
-                        <p class="card-con_date"> {{ con.con_date }}</p>
-                        <p class="card-website">
-                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
-                      </p>
-                    </div>
-                </div>
-            </div>
-        {% empty %}
-            <p>No conventions found.</p>
-        {% endfor %}
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <h1>Upcoming Anime Conventions</h1>
-    <div class="row">
-        {% for con in upcoming_ani_cons %}
-            <div class="col-md-4">
-                <div class="card mb-4" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ con.name }}</h5>
-                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
-                        <p class="card-con_date"> {{ con.con_date }}</p>
-                        <p class="card-website">
-                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
-                      </p>
-                    </div>
-                </div>
-            </div>
-        {% empty %}
-            <p>No conventions found.</p>
-        {% endfor %}
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <h1>Upcoming Comic Conventions</h1>
-    <div class="row">
-        {% for con in upcoming_com_cons %}
-            <div class="col-md-4">
-                <div class="card mb-4" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ con.name }}</h5>
-                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
-                        <p class="card-con_date"> {{ con.con_date }}</p>
-                        <p class="card-website">
-                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
-                      </p>
-                    </div>
-                </div>
-            </div>
-        {% empty %}
-            <p>No conventions found.</p>
-        {% endfor %}
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <h1>Upcoming Horror Conventions</h1>
-    <div class="row">
-        {% for con in upcoming_hor_cons %}
-            <div class="col-md-4">
-                <div class="card mb-4" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ con.name }}</h5>
-                        <p class="card-location">{{ con.city }}, {{ con.state }}</p>
-                        <p class="card-con_date"> {{ con.con_date }}</p>
-                        <p class="card-website">
-                          <a href="{{ con.website }}" target="_blank" rel="noopener noreferrer">{{ con.website }}</a>
-                      </p>
-                    </div>
-                </div>
-            </div>
-        {% empty %}
-            <p>No conventions found.</p>
-        {% endfor %}
-    </div>
-  </div>
-
-
+</div>
 {% endblock %}

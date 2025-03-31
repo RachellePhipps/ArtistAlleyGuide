@@ -1,0 +1,6 @@
+@import url('./colors.css');
+
+
+.foot-container {
+    background-color: var(--silver-lake-blue);
+}

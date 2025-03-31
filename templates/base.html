@@ -14,6 +14,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,6 +26,13 @@
 
     <!-- Link BASE css file -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
   </head>
   <body>
@@ -36,4 +45,46 @@
       {% include 'footer.html' %}
     </div>
   </body>
+  <script>
+    document.querySelectorAll('.favorite-btn').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        const artistId = this.dataset.conId;
+        const csrftoken = getCookie('csrftoken');
+        const buttonEl = this;
+  
+        fetch(`/favorite/${artistId}/`, {
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': csrftoken,
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.favorited) {
+            buttonEl.innerHTML = '💖';  // Filled heart
+          } else {
+            buttonEl.innerHTML = '🤍';  // Empty heart
+          }
+        });
+      });
+    });
+  
+    // Helper function to get CSRF token from cookie
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith(name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  </script>
 </html>

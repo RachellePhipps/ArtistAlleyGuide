@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% load static %} {% block content%}
+
+
+<h1>Hello all</h1>
+
+  <h2>My Favorite Artists</h2>
+
+  {% if favorites %}
+    <ul>
+      {% for artist in favorites %}
+        <li>
+          <strong>{{ artist.name }}</strong> — {{ artist.genre }}
+          <form action="{% url 'toggle_favorite' artist.id %}" method="POST" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">💖</button> <!-- Let them unfavorite here too -->
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You haven’t favorited any artists yet.</p>
+  {% endif %}
+
+  
+{% endblock %}

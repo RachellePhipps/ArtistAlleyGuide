@@ -1,8 +1,14 @@
+@import url('./colors.css');
+
 .custom-navbar {
-  background-color: rgb(244, 236, 236) !important;
-  color: aliceblue;
+  background-color: rgb(20, 107, 188) !important;
+  color: rgb(255, 246, 240);
   height: 70px;
   padding: 10px 20px;
+}
+
+.custom-navbar .navbar-nav {
+  gap: 30px;  
 }
 
 .custom-search {
@@ -11,19 +17,18 @@
 
 /* Change button color */
 .custom-btn {
-  background-color: #d75a69; /* Green color */
+  background-color: var(--bubble-gum); /* Green color */
   color: white; /* Text color */
   border: none; /* Remove border */
-  transition: 0.3s;
   border-radius: 50px;
 }
 
 .custom-btn:hover {
-  background-color: #ef7171; /* Darker green on hover */
+  background-color: var(--fairy-tale); /*hover */
 }
 
 .navbar-brand {
-  color: rgb(98, 5, 23);
+  color: var(--pale-purple);
   font-family: "Roboto Slab", serif;
   font-optical-sizing: auto;
 }
@@ -33,4 +38,5 @@
   display: inline-flex; /* Ensure inline display */
   align-items: center; /* Vertical alignment */
 }
+
 

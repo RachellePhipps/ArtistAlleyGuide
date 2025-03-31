@@ -1,68 +1,91 @@
 {% extends "account_base.html" %}
 <!DOCTYPE html>
 <html lang="en">
-  {% load static %}
+  {% load static %} {% load widget_tweaks %}
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Login{% endblock %}</title>
   </head>
 
-{% block content %}
-<form method="post">
-  {% csrf_token %}
-  <body>
-    <section class="vh-100" style="background-color: #9A616D;">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-xl-10">
-            <div class="card" style="border-radius: 1rem;">
-              <div class="row g-0">
-                <div class="col-md-6 col-lg-5 d-none d-md-block">
-                  <img src="https://i.pinimg.com/736x/30/13/a3/3013a3555abb539875934867cbd3bcbd.jpg"
-                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
-                </div>
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div class="card-body p-4 p-lg-5 text-black">
-    
-                    <form>
-    
-                      <div class="d-flex align-items-center mb-3 pb-1">
-                        <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                        <span class="h1 fw-bold mb-0">Logo</span>
-                      </div>
-    
-                      <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
-    
-                      <div data-mdb-input-init class="form-outline mb-4">
-                        <label class="form-label" for="id_username">Email address</label>
-                        {{ form.username }}
-                      </div>
-
-
-    
-                        <!-- Password input -->
-                        <div data-mdb-input-init class="form-outline mb-4">
-                          <label class="form-label" for="id_password">Password</label>
-                          {{ form.password }}
+  {% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <body>
+      <section class="vh-100 testing">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col col-xl-10">
+              <div class="card" style="border-radius: 1rem">
+                <div class="row g-0">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    <img
+                    src="https://images.squarespace-cdn.com/content/v1/588420f059cc684854b24c31/1705975997474-DQR2T8MJ9H3CEBCGRNYU/booth%2Bphoto%2B2023%2Boutdoors.jpg"
+                    alt="login form"
+                    class="img-fluid w-100 h-100"
+                    style="object-fit: cover; border-radius: 1rem 0 0 1rem"
+                  />
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+                      <form>
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                          <i
+                            class="fas fa-cubes fa-2x me-3"
+                            style="color: #ff6219"
+                          ></i>
+                          <span class="h1 fw-bold mb-0">Logo</span>
                         </div>
-                      
-                      <!-- Submit button -->
-                      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
-    
-                      <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                          style="color: #393f81;">Register here</a></p>
-                    </form>
+                        <h5
+                          class="fw-normal mb-3 pb-3"
+                          style="letter-spacing: 1px"
+                        >
+                          Sign into your account
+                        </h5>
+
+                        <div class="mb-3">
+                          <label for="id_username" class="form-label"
+                            >Username</label
+                          >
+                          {{ form.username|add_class:"form-control" }}
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="mb-3">
+                          <label for="id_password" class="form-label"
+                            >Password</label
+                          >
+                          {{ form.password|add_class:"form-control" }}
+                        </div>
+
+                        <!-- Submit button -->
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-block mb-4"
+                        >
+                          Sign in
+                        </button>
+
+                        <p class="mb-5 pb-lg-2" style="color: #393f81">
+                          Don't have an account?
+                          <a href="{% url 'signup' %}" style="color: #393f81"
+                            >Register here</a
+                          >
+                        </p>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </body>
-</form>
+      </section>
+    </body>
+  </form>
   {% endblock %}
 </html>

@@ -1,3 +1,5 @@
+@import url('./colors.css');
+
 * {
   font-family: "Roboto Slab", serif;
 }
@@ -5,7 +7,7 @@
 .full {
   background-image: 
     radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), /* Box pattern */
-    linear-gradient(rgb(235, 220, 220), rgb(255, 255, 255), rgb(255, 255, 255),rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 191, 191));
+    linear-gradient(white, white, white, white, white, var(--fairy-tale));
     background-size: 20px 20px, cover; /* Box size, gradient covers entire area */
     background-position: center; /* Center the pattern */
 }
@@ -14,14 +16,15 @@
 .home-container {
   display: flex;
   justify-content: center; 
-  height: 50vh;            
+  height: 50vh;   
 }
 
 .custom-card {
-  width: 1500px;  
-  height: 500px; 
-  overflow: hidden; 
+  width: 100%;
+  display: block;
+  overflow: hidden;
   margin-top: 10px;
+  margin-bottom: 5vh;
 }
   
 .custom-card img {
@@ -31,11 +34,43 @@
 }
 
 .home-container .card-title {
-  color: #ffffff;
-  font-size: 2.50em;
+  color: white;
+  font-size: 3.50em;
   position: absolute;
   bottom: 8px;
   left: 16px;
 }
 
+.row { 
+  padding-top: 20px;
+}
+
+.con0 {
+  padding-left: 10vh;
+  padding-right: 10vh;
+  padding-bottom: 10vh;
+}
+
+.con1 {
+  background-color: var(--wisteria);
+  padding: 10vh;
+}
+
+.con2 {
+  padding: 10vh;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: black;
+  border-radius: 10%;
+  font-size: 24px;
+  color: white;
+}
 

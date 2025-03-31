@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- Link search css file -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}" />
+
+<div class="container mt-4">
+  <h2>Search for Conventions</h2>
+
+  <div class="row">
+    <form method="get" class="col-12 col-md-3 example1">
+      <!-- Name Filter -->
+      <input
+        type="text"
+        name="q"
+        class="form-control"
+        placeholder="Search by name"
+        value="{{ request.GET.q }}"
+      />
+      <br />
+
+      <label for="start_date" class="form-label">Start Date</label>
+      <input
+        type="date"
+        name="start_date"
+        id="start_date"
+        class="form-control"
+        value="{{ request.GET.start_date }}"
+      />
+      <br />
+
+      <label for="end_date" class="form-label">End Date</label>
+      <input
+        type="date"
+        name="end_date"
+        id="end_date"
+        class="form-control"
+        value="{{ request.GET.end_date }}"
+      />
+      <br/>
+      
+      <label for="min_value" class="form-label">Min</label>
+    <input type="number" class="form-control" id="min_value" name="min_value" placeholder="Minimum">
+
+
+    <label for="max_value" class="form-label">Max</label>
+    <input type="number" class="form-control" id="max_value" name="max_value" placeholder="Maximum">
+
+      <!-- Submit Button -->
+      <div class="col-md-5">
+        <button type="submit" class="btn btn-primary w-100 filter-button">Filter</button>
+      </div>
+    </form>
+    <div class="col-6 col-md-9 example2">
+      {% if results %}
+      <div class="container mt-4">
+        <p class="mt-4">
+          <strong>{{ results|length }}</strong> result{{ results|length|pluralize }} found
+        </p>
+        <div class="row">
+          {% for con in results %}
+          <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card shadow" style="width: 20rem">
+              <div style="width: 100%; height: 200px; overflow: hidden;">
+                <img
+                  src="{{ con.image.url }}"
+                  class="card-img-top"
+                  alt="{{ con.name }}"
+                  style="width: 100%; height: 100%; object-fit: cover;"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title mb-1">
+                  <a
+                    href="{% url 'con_detail' con.slug %}"
+                    class="text-body text-decoration-none"
+                  >
+                    {{ con.name }}
+                  </a>
+                </h5>
+                
+                <div class="con-fav" data-con-id="{{ con.id }}">
+
+                  <button class="favorite-btn" data-con-id="{{ con.id }}">
+                    {% if user in con.favorited_by.all %}
+                      💖
+                    {% else %}
+                      🤍
+                    {% endif %}
+                  </button>
+                </div>
+
+                <p class="card-location mb-1 small">
+                  {{ con.city }}, {{ con.state }}
+                </p>
+                <p class="card-con_date mb-1 small">{{ con.con_date }}</p>
+              </div>
+            </div>
+          </div>
+          
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      <p class="mt-4">No results found.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
