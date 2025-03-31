@@ -1,10 +1,141 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-<div class="artist-card">
-    <h1>{{ con.name }}</h1>
-    <p>Genre: {{ con.con_date }}</p>
-    <p>Title: {{ con.city }}</p>
-    <a href="/">Back to Home</a>
-</div>
+
+<!-- Link needed css file -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/con_details.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <div class="container home-container">
+    <div class="card bg-dark text-white custom-card">
+        <img 
+          class="card-img"
+          src="{{ con.image.url }}"  
+          alt="Convention image"
+        />
+    </div>
+  </div>
+
+
+  <div class="container mt-6">
+    <nav class="navbar navbar-light bg-light sticky-top cons-nav fs-6">
+      <a class="navbar-brand" href="#overview">Overview</a>
+      <a class="navbar-brand" href="#guide">Artist Guide</a>
+      <a class="navbar-brand" href="#Convention-Center">Convention Center</a>
+    </nav>
+
+      <div id="overview">
+        <div class="container overview">
+          <div class="row">
+            <div class="col-8">
+              <h1>{{ con.name }}</h1>
+              <h5>{{ con.city }}, {{ con.state }}</h5>
+              <p>{{ con.con_date }}</p>
+              <p><a href="{{ con.website }}">{{ con.website }}</a></p> 
+              <p>{{ con.description }}</p>   
+              <div class="row">
+                <div class="col-sm-4">
+                  <b><i class="bi bi-people-fill"></i> Number of attendees: {{ con.num_attend }}</b>
+                </div>
+                <div class="col-sm-8">
+                  <b><i class="bi bi-brightness-alt-high-fill"></i> Number of days: xx</b>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div>
+                <iframe src="{{ con.location }}" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      
+    <div id="guide">
+      <div class="container overview">
+        <h1>Artist Guide for {{ con.name }}</h1>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <b><i class="bi bi-calendar2-check"></i> Apply Date: {{ con.apply_date }}</b>
+            <br>
+            <br>
+            <b><i class="bi bi-airplane-engines-fill"></i> Average Travel Cost: ${{ con.travel_cost }}</b>
+          </div>
+          <div class="col-sm-8">
+            <b><i class="bi bi-cash-stack"></i> Average Table Cost: ${{ con.table_cost }} </b>
+            <br>
+            <br>
+            <b><i class="bi bi-brush-fill"></i> Average Number of Artists: {{ con.num_artists }} </b>
+          </div>
+        </div>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper dapibus rutrum. Pellentesque consectetur sit amet augue a consectetur. Nam viverra euismod nulla, ac mollis sem vulputate vel. Maecenas scelerisque ante quis sapien sodales egestas. Pellentesque convallis nunc sodales enim mollis tincidunt. Vestibulum sed purus ullamcorper, lacinia diam eu, volutpat ante. Vivamus turpis tellus, ultricies nec enim eget, scelerisque viverra ante. Suspendisse ac egestas nisl, at sodales mauris. Integer eu laoreet ligula. In feugiat, sapien et consequat eleifend, lectus ipsum posuere nulla, sit amet porta nunc velit eget purus. Maecenas quis eros ac odio finibus imperdiet vel vitae ipsum. Quisque auctor laoreet imperdiet. Ut lorem enim, aliquam ut dolor quis, consectetur efficitur augue. In ut velit et erat porta rhoncus. Praesent nisi dolor, porttitor in nunc eget, placerat aliquet metus. Curabitur sodales et purus eget cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sed justo eu ipsum mattis dapibus eu eget libero. Suspendisse potenti. Aliquam lacinia varius finibus. In vehicula tincidunt gravida. Duis ut rhoncus est. Vestibulum at volutpat est, vitae bibendum ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut volutpat ipsum, nec vestibulum purus. Integer rutrum, est non molestie malesuada, sapien lectus efficitur ipsum, id mollis eros metus tristique elit. Maecenas elementum felis vitae mi pharetra bibendum. Donec vestibulum nibh placerat sapien bibendum, id aliquam libero elementum. Aenean efficitur turpis vel posuere luctus. Aliquam vel volutpat urna. Etiam in odio lacinia justo facilisis tristique. Aliquam blandit, ex ac efficitur aliquam, arcu ligula lobortis tellus, nec venenatis felis nisl sit amet orci. Nunc eleifend fringilla metus ut ullamcorper. Pellentesque et elementum velit. Nam ipsum enim, hendrerit sed semper in, euismod vel augue. Cras eget rutrum libero, quis vestibulum lorem. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse ut ipsum orci. Maecenas semper tristique sapien sit amet condimentum. Suspendisse eu ipsum et lorem iaculis efficitur. Quisque egestas mauris sit amet erat finibus sodales. Maecenas mollis viverra neque, et feugiat ante pharetra vel. Aenean non finibus ante. Integer vitae lorem a nulla accumsan bibendum a sed diam.</p>
+
+        {% with con.images.all as imgs %}
+        <div class="container mt-4 artist-photo">
+          <h3>Artist Photos</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <img src="{{ imgs.0.image.url }}" class="gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="{{ imgs.0.image.url }}">
+            </div>
+            <div class="col-md-4">
+              <img src="{{ imgs.1.image.url }}" class="gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="{{ imgs.1.image.url }}">
+            </div>
+            <div class="col-md-4">
+              <img src="{{ imgs.2.image.url }}" class="gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="{{ imgs.2.image.url }}">
+            </div>
+          </div>
+        </div>
+        {% endwith %}
+        
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-body p-0">
+                <img src="" id="modalImage" class="w-100">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+    <hr>
+
+    <div id="Convention-Center">
+      <h1>Convention Center</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper dapibus rutrum. Pellentesque consectetur sit amet augue a consectetur. Nam viverra euismod nulla, ac mollis sem vulputate vel. Maecenas scelerisque ante quis sapien sodales egestas. Pellentesque convallis nunc sodales enim mollis tincidunt. Vestibulum sed purus ullamcorper, lacinia diam eu, volutpat ante. Vivamus turpis tellus, ultricies nec enim eget, scelerisque viverra ante. Suspendisse ac egestas nisl, at sodales mauris. Integer eu laoreet ligula.
+
+        In feugiat, sapien et consequat eleifend, lectus ipsum posuere nulla, sit amet porta nunc velit eget purus. Maecenas quis eros ac odio finibus imperdiet vel vitae ipsum. Quisque auctor laoreet imperdiet. Ut lorem enim, aliquam ut dolor quis, consectetur efficitur augue. In ut velit et erat porta rhoncus. Praesent nisi dolor, porttitor in nunc eget, placerat aliquet metus. Curabitur sodales et purus eget cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sed justo eu ipsum mattis dapibus eu eget libero. Suspendisse potenti. Aliquam lacinia varius finibus.
+        
+        In vehicula tincidunt gravida. Duis ut rhoncus est. Vestibulum at volutpat est, vitae bibendum ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut volutpat ipsum, nec vestibulum purus. Integer rutrum, est non molestie malesuada, sapien lectus efficitur ipsum, id mollis eros metus tristique elit. Maecenas elementum felis vitae mi pharetra bibendum. Donec vestibulum nibh placerat sapien bibendum, id aliquam libero elementum.
+        
+        Aenean efficitur turpis vel posuere luctus. Aliquam vel volutpat urna. Etiam in odio lacinia justo facilisis tristique. Aliquam blandit, ex ac efficitur aliquam, arcu ligula lobortis tellus, nec venenatis felis nisl sit amet orci. Nunc eleifend fringilla metus ut ullamcorper. Pellentesque et elementum velit. Nam ipsum enim, hendrerit sed semper in, euismod vel augue. Cras eget rutrum libero, quis vestibulum lorem. Suspendisse potenti.
+        
+        Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse ut ipsum orci. Maecenas semper tristique sapien sit amet condimentum. Suspendisse eu ipsum et lorem iaculis efficitur. Quisque egestas mauris sit amet erat finibus sodales. Maecenas mollis viverra neque, et feugiat ante pharetra vel. Aenean non finibus ante. Integer vitae lorem a nulla accumsan bibendum a sed diam.</p>
+    </div>
+      <a href="/">Back to Home</a>
+  </div>
+
+
+  <script>
+    const imageModal = document.getElementById('imageModal');
+    imageModal.addEventListener('show.bs.modal', function (event) {
+      const triggerImg = event.relatedTarget;
+      const imageSrc = triggerImg.getAttribute('data-img');
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = imageSrc;
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock %}

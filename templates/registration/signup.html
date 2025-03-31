@@ -1,12 +1,86 @@
 {% extends "account_base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %} {% load widget_tweaks %}
 
-{% block title %}Sign Up{% endblock %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Signup{% endblock %}</title>
+  </head>
 
-{% block content %}
-<h2>Sign up</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form }}
-  <button type="submit">Sign Up</button>
-</form>
-{% endblock %}
+  {% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <body>
+      <section class="vh-100 testing">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col col-xl-10">
+              <div class="card" style="border-radius: 1rem">
+                <div class="row g-0">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    <img
+                    src="https://i.pinimg.com/736x/53/41/78/5341787b18af76d460eec6d610a7679c.jpg"
+                    alt="login form"
+                    class="img-fluid w-100 h-100"
+                    style="object-fit: cover; border-radius: 1rem 0 0 1rem"
+                  />
+                  
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+                      <form>
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                          <i
+                            class="fas fa-cubes fa-2x me-3"
+                            style="color: #ff6219"
+                          ></i>
+                          <span class="h1 fw-bold mb-0">Logo</span>
+                        </div>
+
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                          Create your account
+                        </h5>
+                        
+                        <div class="mb-3">
+                          <label for="id_username" class="form-label">Username</label>
+                          {{ form.username|add_class:"form-control" }}
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="id_password1" class="form-label">Password</label>
+                          {{ form.password1|add_class:"form-control" }}
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="id_password2" class="form-label">Confirm Password</label>
+                          {{ form.password2|add_class:"form-control" }}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                          Sign up
+                        </button>
+                        
+
+                        <p class="mb-5 pb-lg-2" style="color: #393f81">
+                          Already have an account?
+                          <a href="{% url 'login' %}" style="color: #393f81"
+                            >Register here</a
+                          >
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </body>
+  </form>
+  {% endblock %}
+</html>

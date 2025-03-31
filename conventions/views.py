@@ -8,7 +8,6 @@ def home(request):
     #Current date 
     today = now().date()
 
-
     # Filter 1: Conventions Upcoming by closest Date
     upcoming_cons = Convention.objects.filter(con_date__gte=today).order_by('con_date')
 
@@ -47,3 +46,24 @@ def con_detail(request, slug):
     con = get_object_or_404(Convention, slug=slug)
     return render(request, 'con_detail.html', {'con': con})
 
+
+def search_view(request):
+    query = request.GET.get('q')  # Main search term
+    date1 = request.GET.get('con_date')
+    date2 = request.GET.get('apply_date')
+
+    results = Convention.objects.all()
+
+    # Apply filters if present
+    if query:
+        results = results.filter(name__icontains=query)
+    if date1:
+        results = results.filter(date1__gte=date1)
+    if date2:
+        results = results.filter(date2__lte=date2)
+
+    context = {
+        'results': results,
+        'query': query,
+    }
+    return render(request, 'search.html', context)

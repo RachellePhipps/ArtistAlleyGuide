@@ -1,0 +1,56 @@
+{% extends 'base.html' %}  {# If you're using a base layout #}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Conventions</h2>
+
+    
+    <div class="row">
+      <div class="col-12 col-md-3 example1">.col-12 .col-md-8</div>
+      <div class="col-6 col-md-7 example2">.col-6 .col-md-4</div>
+    </div>
+
+
+    <form method="get" class="mb-4">
+      <div class="row g-3">
+    
+        <!-- Date1 Filter -->
+        <div class="col-md-3">
+          <input type="date" name="date1" class="form-control" value="{{ request.GET.con_date }}">
+        </div>
+    
+        <!-- Date2 Filter -->
+        <div class="col-md-3">
+          <input type="date" name="date2" class="form-control" value="{{ request.GET.apply_date }}">
+        </div>
+    
+    
+        <!-- Submit Button -->
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+    
+      </div>
+    </form>
+    
+    <!-- Search Results -->
+    {% if query %}
+      {% if results %}
+        <ul class="list-group mt-4">
+          {% for item in results %}
+            <li class="list-group-item">
+              <h2><a href="{% url 'con_detail' item.slug %}">{{ item.name }}</a></h2>
+              <!-- You can display additional info here -->
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="mt-4">No results found.</p>
+      {% endif %}
+    {% else %}
+      <p class="mt-4">Please enter a search term above.</p>
+    {% endif %}
+    
+    
+  </div>
+{% endblock %}
