@@ -62,6 +62,7 @@ def con_detail(request, slug):
     else:
         form = CommentForm()
 
+<<<<<<< HEAD
     context = {
         'con': con,
         'comments': comments,
@@ -88,11 +89,29 @@ def search_view(request):
     if end_date:
         results = results.filter(con_date__lte=end_date)
 
+=======
+
+def search_view(request):
+    query = request.GET.get('q')  # Main search term
+    date1 = request.GET.get('con_date')
+    date2 = request.GET.get('apply_date')
+
+    results = Convention.objects.all()
+
+    # Apply filters if present
+    if query:
+        results = results.filter(name__icontains=query)
+    if date1:
+        results = results.filter(date1__gte=date1)
+    if date2:
+        results = results.filter(date2__lte=date2)
+>>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
 
     context = {
         'results': results,
         'query': query,
     }
+<<<<<<< HEAD
     return render(request, 'search.html', context)
 
 
@@ -118,3 +137,6 @@ def toggle_favorite(request, con_id):
 def my_favorites(request):
     favorites = request.user.favorite_cons.all()
     return render(request, 'my_favorites.html', {'favorites': favorites})
+=======
+    return render(request, 'search.html', context)
+>>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
