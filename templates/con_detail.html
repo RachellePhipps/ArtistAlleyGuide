@@ -16,7 +16,6 @@
     </div>
   </div>
 
-
   <div class="container mt-6">
     <nav class="navbar navbar-light bg-light sticky-top cons-nav fs-6">
       <a class="navbar-brand" href="#overview">Overview</a>
@@ -34,7 +33,7 @@
 
                 <button class="favorite-btn" data-con-id="{{ con.id }}">
                   {% if user in con.favorited_by.all %}
-                    💖
+                    💖Love
                   {% else %}
                     🤍
                   {% endif %}
