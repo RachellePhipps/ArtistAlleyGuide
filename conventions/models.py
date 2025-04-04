@@ -62,6 +62,11 @@ class Convention(models.Model):
     # Convention Center TODO
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
     slug = models.SlugField(unique=True, blank=True)  # For URL-friendly name
 
     # Favorites relationship
@@ -82,6 +87,7 @@ class ConventionImage(models.Model):
     image = models.ImageField(upload_to='images/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+<<<<<<< HEAD
 
 # for comments
 class Comment(models.Model):
@@ -92,3 +98,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.con.name}"
+=======
+>>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235

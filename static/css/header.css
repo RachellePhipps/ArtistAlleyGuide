@@ -1,7 +1,11 @@
 @import url('./colors.css');
 
 .custom-navbar {
+<<<<<<< HEAD
   background-color: rgb(20, 107, 188) !important;
+=======
+  background-color: var(--silver-lake-blue) !important;
+>>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
   color: rgb(255, 246, 240);
   height: 70px;
   padding: 10px 20px;
