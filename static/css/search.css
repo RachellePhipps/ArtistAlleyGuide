@@ -17,3 +17,7 @@
 .filter-button:hover {
     background-color: var(--silver-lake-blue); 
   }
+
+.main-con {
+    padding-bottom: 10vh;
+}

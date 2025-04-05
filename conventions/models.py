@@ -58,15 +58,6 @@ class Convention(models.Model):
     # rating
     rating = models.FloatField(null=True, blank=True)
 
-
-    # Convention Center TODO
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
     slug = models.SlugField(unique=True, blank=True)  # For URL-friendly name
 
     # Favorites relationship
@@ -87,8 +78,6 @@ class ConventionImage(models.Model):
     image = models.ImageField(upload_to='images/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
-<<<<<<< HEAD
-
 # for comments
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -98,5 +87,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.con.name}"
-=======
->>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235

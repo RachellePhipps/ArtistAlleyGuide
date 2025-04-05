@@ -25,7 +25,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark custom-navbar">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'home' %}">
             <img
@@ -68,14 +68,7 @@
 
               <!-- About -->
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'gettingStarted' %}">About</a>
-              </li>
-
-              <!-- Contact -->
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'gettingStarted' %}"
-                  >Contact</a
-                >
+                <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
 
               {% if user.is_authenticated %}

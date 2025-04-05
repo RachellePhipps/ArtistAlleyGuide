@@ -10,17 +10,13 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", views.home, name="home"),
     path('getting-started/', views.getting_started, name='gettingStarted'),
-<<<<<<< HEAD
+    path('about/', views.about, name='about'),
     path('favorite/<int:con_id>/', views.toggle_favorite, name='toggle_favorite'),
     path('my-favorites/', views.my_favorites, name='my_favorites'),
     path('search/', views.search_view, name='search'),
     path('<slug:slug>', views.con_detail, name='con_detail'),
     path('favorite/<int:con_id>/', views.toggle_favorite, name='toggle_favorite'),
     
-=======
-    path('search/', views.search_view, name='search'),
-    path('<slug:slug>/', views.con_detail, name='con_detail'),
->>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
 ]
 
 if settings.DEBUG:

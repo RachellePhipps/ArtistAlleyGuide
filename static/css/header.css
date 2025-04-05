@@ -1,12 +1,7 @@
 @import url('./colors.css');
 
 .custom-navbar {
-<<<<<<< HEAD
-  background-color: rgb(20, 107, 188) !important;
-=======
-  background-color: var(--silver-lake-blue) !important;
->>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
-  color: rgb(255, 246, 240);
+  background-color: var(--wisteria) !important;
   height: 70px;
   padding: 10px 20px;
 }
@@ -21,26 +16,26 @@
 
 /* Change button color */
 .custom-btn {
-  background-color: var(--bubble-gum); /* Green color */
-  color: white; /* Text color */
-  border: none; /* Remove border */
+  background-color: var(--bubble-gum); 
+  color: white; 
+  border: none; 
   border-radius: 50px;
 }
 
 .custom-btn:hover {
-  background-color: var(--fairy-tale); /*hover */
+  background-color: var(--fairy-tale); 
 }
 
 .navbar-brand {
-  color: var(--pale-purple);
+  color: var(--dark-blue);
   font-family: "Roboto Slab", serif;
   font-optical-sizing: auto;
 }
 
 .navbar-nav .nav-item {
-  white-space: nowrap; /* Prevent text wrapping */
-  display: inline-flex; /* Ensure inline display */
-  align-items: center; /* Vertical alignment */
+  white-space: nowrap; 
+  display: inline-flex; 
+  align-items: center; 
 }
 
 

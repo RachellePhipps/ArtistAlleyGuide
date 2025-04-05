@@ -3,7 +3,7 @@
 <!-- Link search css file -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}" />
 
-<div class="container mt-4">
+<div class="container mt-4 main-con">
   <h2>Search for Conventions</h2>
 
   <div class="row">
@@ -44,7 +44,8 @@
 
     <label for="max_value" class="form-label">Max</label>
     <input type="number" class="form-control" id="max_value" name="max_value" placeholder="Maximum">
-
+    
+      <br>
       <!-- Submit Button -->
       <div class="col-md-5">
         <button type="submit" class="btn btn-primary w-100 filter-button">Filter</button>
@@ -82,9 +83,9 @@
 
                   <button class="favorite-btn" data-con-id="{{ con.id }}">
                     {% if user in con.favorited_by.all %}
-                      💖
+                    <i class="bi bi-heart-fill"></i>
                     {% else %}
-                      🤍
+                    <i class="bi bi-heart"></i>
                     {% endif %}
                   </button>
                 </div>

@@ -1,25 +1,62 @@
 {% extends "base.html" %} {% load static %} {% block content%}
 
 
-<h1>Hello all</h1>
+<div class="container">
+  <br>
+  <h1>Your Favorties</h1>
 
-  <h2>My Favorite Artists</h2>
-
+  
   {% if favorites %}
-    <ul>
-      {% for artist in favorites %}
-        <li>
-          <strong>{{ artist.name }}</strong> — {{ artist.genre }}
-          <form action="{% url 'toggle_favorite' artist.id %}" method="POST" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit">💖</button> <!-- Let them unfavorite here too -->
-          </form>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="row">
+      {% for con in favorites %}
+
+    
+    <div class="col-md-4 mb-3">
+      <div class="card shadow h-100" id="card-{{ con.id }}">
+        <img
+          src="{{ con.image.url }}"
+          class="card-img-top object-fit-cover"
+          style="height: 100px"
+          alt="{{ con.name }}"
+        />
+        <div class="card-body p-2">
+          <h5 class="card-title mb-1">
+            <a
+              href="{% url 'con_detail' con.slug %}"
+              class="text-body text-decoration-none"
+            >
+              {{ con.name }}
+            </a>
+          </h5>
+
+          <div class="con-fav" data-con-id="{{ con.id }}">
+
+            <button class="favorite-btn" data-con-id="{{ con.id }}">
+              {% if user in con.favorited_by.all %}
+                <i class="bi bi-heart-fill"></i>
+              {% else %}
+                <i class="bi bi-heart"></i>
+              {% endif %}
+            </button>
+            
+          </div>
+
+          <p class="card-location mb-1 small">
+            <i class="bi bi-geo-alt-fill"></i> {{ con.city }}, {{ con.state }}
+          </p>
+          <p class="card-con_date mb-1 small">
+            <i class="bi bi-calendar-date"></i> {{ con.con_date }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %} 
+    </div> 
   {% else %}
-    <p>You haven’t favorited any artists yet.</p>
-  {% endif %}
+  <p>You haven’t favorited any Conventions yet.</p>
+{% endif %}
+</div>
 
   
 {% endblock %}

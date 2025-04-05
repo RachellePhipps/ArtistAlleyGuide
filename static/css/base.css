@@ -44,7 +44,6 @@
 .row { 
   padding-top: 20px;
 }
-<<<<<<< HEAD
 
 .con0 {
   padding-left: 10vh;
@@ -74,8 +73,6 @@
   font-size: 24px;
   color: white;
 }
-=======
->>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235
 
 .con0 {
   padding-left: 10vh;
@@ -90,4 +87,9 @@
 
 .con2 {
   padding: 10vh;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
 }

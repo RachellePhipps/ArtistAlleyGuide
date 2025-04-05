@@ -49,9 +49,9 @@
 
                     <button class="favorite-btn" data-con-id="{{ con.id }}">
                       {% if user in con.favorited_by.all %}
-                        💖
+                      <i class="bi bi-heart-fill"></i>
                       {% else %}
-                        🤍
+                      <i class="bi bi-heart"></i>
                       {% endif %}
                     </button>
                   </div>

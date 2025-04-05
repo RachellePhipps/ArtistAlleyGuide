@@ -63,9 +63,9 @@
         .then(response => response.json())
         .then(data => {
           if (data.favorited) {
-            buttonEl.innerHTML = '💖';  // Filled heart
+            buttonEl.innerHTML = '<i class="bi bi-heart-fill"></i>';  // Filled heart
           } else {
-            buttonEl.innerHTML = '🤍';  // Empty heart
+            window.location.reload();  // <- reload on unfavorite
           }
         });
       });
@@ -83,8 +83,9 @@
             break;
           }
         }
+        return cookieValue;
       }
-      return cookieValue;
     }
   </script>
+  
 </html>

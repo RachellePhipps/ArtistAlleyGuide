@@ -1,11 +1,11 @@
 from django.contrib import admin
 from .models import Convention, ConventionImage
-<<<<<<< HEAD
 from .models import Comment
 
 class ConventionImageInline(admin.TabularInline):
     model = ConventionImage
     extra = 1  # Number of empty image fields displayed
+
 
 class ConventionAdmin(admin.ModelAdmin):
     inlines = [ConventionImageInline]
@@ -23,17 +23,3 @@ class CommentAdmin(admin.ModelAdmin):
     short_text.short_description = 'Comment'
 
 admin.site.register(Comment, CommentAdmin)
-=======
-
-
-class ConventionImageInline(admin.TabularInline):
-    model = ConventionImage
-    extra = 1  # Number of empty image fields displayed
-
-class ConventionAdmin(admin.ModelAdmin):
-    inlines = [ConventionImageInline]
-
-admin.site.register(Convention, ConventionAdmin)
-
-
->>>>>>> 507e6d1d914bf551225fb5b42d206ae28d950235

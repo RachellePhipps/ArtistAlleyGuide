@@ -50,3 +50,13 @@
   cursor: pointer;
 }
 
+
+.con-details-container {
+  padding-bottom: 30vh;
+}
+
+
+.no-comments {
+  color: (--dark-blue);
+  background-color: var(--pale-purple);
+}
