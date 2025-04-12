@@ -58,12 +58,22 @@ def con_detail(request, slug):
                 comment = form.save(commit=False)
                 comment.user = request.user
                 comment.con = con
+                comment.my_model = con
                 comment.save()
+
+                con.rating_total += comment.rating
+                con.rating_count += 1
+                con.save()
+
                 return redirect('con_detail', slug=slug)
             else:
                 return redirect('login')
     else:
         form = CommentForm()
+
+
+
+
 
     context = {
         'con': con,

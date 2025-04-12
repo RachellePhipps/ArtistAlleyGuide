@@ -56,7 +56,8 @@ class Convention(models.Model):
     num_artists = models.IntegerField()
     
     # rating
-    rating = models.FloatField(null=True, blank=True)
+    rating_total = models.IntegerField(default=0)
+    rating_count = models.IntegerField(default=0)
 
     slug = models.SlugField(unique=True, blank=True)  # For URL-friendly name
 
@@ -64,13 +65,15 @@ class Convention(models.Model):
     favorited_by = models.ManyToManyField(User, related_name='favorite_cons', blank=True)
 
     def save(self, *args, **kwargs):
-    # Automatically create a slug from the name if it's not set
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+    
+    def average_rating(self):
+        return self.rating_total / self.rating_count if self.rating_count > 0 else 0
     
 # Convention images
 class ConventionImage(models.Model):
@@ -84,6 +87,8 @@ class Comment(models.Model):
     con = models.ForeignKey(Convention, on_delete=models.CASCADE, related_name='comments')
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
 
+    
     def __str__(self):
         return f"{self.user.username} - {self.con.name}"
