@@ -54,6 +54,8 @@ class Convention(models.Model):
     travel_cost = models.IntegerField()
     # number of artists
     num_artists = models.IntegerField()
+    #artist alley description
+    art_description = models.TextField(blank=True, null=True)
     
     # rating
     rating_total = models.IntegerField(default=0)

@@ -23,7 +23,7 @@ def home(request):
     upcoming_com_cons = Convention.objects.filter(con_date__gte=today, con_type="C").order_by('con_date')
 
     # filter 5: Upcoming HORROR conventions only
-    upcoming_hor_cons = Convention.objects.filter(con_date__gte=today, con_type="J").order_by('con_date')
+    upcoming_hor_cons = Convention.objects.filter(con_date__gte=today, con_type="H").order_by('con_date')
 
     # Filter 6: all conventions by alphabetical
     alphabet_cons = Convention.objects.all().order_by('name')
@@ -43,6 +43,9 @@ def home(request):
 def getting_started(request):
     return render(request, 'gettingstarted.html')
 
+
+def faq(request):
+    return render(request, 'faq.html')
 
 def about(request):
     return render(request, 'about.html')

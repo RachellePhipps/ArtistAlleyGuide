@@ -71,6 +71,11 @@
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
 
+              <!-- FAQ -->
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+              </li>
+
               {% if user.is_authenticated %}
               <li class="nav-item dropdown">
                 <a
@@ -87,7 +92,7 @@
                   class="dropdown-menu dropdown-menu-end"
                   aria-labelledby="userDropdown"
                 >
-                  <!-- 👇 Add this block -->
+                  
                   <li>
                     <a class="dropdown-item" href="{% url 'my_favorites' %}">
                       My Favorites
@@ -95,7 +100,6 @@
                   </li>
 
                   <li><hr class="dropdown-divider" /></li>
-                  <!-- optional visual divider -->
 
                   <li>
                     <form

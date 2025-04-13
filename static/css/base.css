@@ -68,8 +68,8 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background-color: black;
-  border-radius: 10%;
+  background-color: rgb(135, 0, 150);
+  border-radius: 50%;
   font-size: 24px;
   color: white;
 }
@@ -82,7 +82,11 @@
 
 .con1 {
   background-color: var(--wisteria);
-  padding: 10vh;
+  
+}
+
+.upcoming-2 {
+  color: white;
 }
 
 .con2 {
@@ -92,4 +96,38 @@
 .fade-out {
   opacity: 0;
   transition: opacity 0.4s ease-out;
+}
+
+
+.faq {
+  padding-top: 5vh;
+  padding-bottom: 25vh;.accordion-button:not(.collapsed) {
+    background-color:var(--bubble-gum);
+    color: white;             
+  }
+  
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.about {
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 15vh;
+  border-radius: 10%;
+  margin-top: 5vh;
+}
+
+.self-image {
+  max-width: 100%;
+ max-height: 100%
+}
+
+.text h1 {
+  color: var(--wisteria);
+}
+
+.text {
+  align-items: center;
 }

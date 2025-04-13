@@ -10,6 +10,7 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", views.home, name="home"),
     path('getting-started/', views.getting_started, name='gettingStarted'),
+    path('faq/', views.faq, name='faq'),
     path('about/', views.about, name='about'),
     path('favorite/<int:con_id>/', views.toggle_favorite, name='toggle_favorite'),
     path('my-favorites/', views.my_favorites, name='my_favorites'),

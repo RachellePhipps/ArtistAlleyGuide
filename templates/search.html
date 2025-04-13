@@ -38,13 +38,15 @@
       />
       <br/>
       
-      <label for="min_value" class="form-label">Min</label>
+      <label for="min_value" class="form-label">Min Attendees</label>
     <input type="number" class="form-control" id="min_value" name="min_value" placeholder="Minimum">
 
+    <br>
 
-    <label for="max_value" class="form-label">Max</label>
+    <label for="max_value" class="form-label">Max Attendees</label>
     <input type="number" class="form-control" id="max_value" name="max_value" placeholder="Maximum">
     
+
       <br>
       <!-- Submit Button -->
       <div class="col-md-5">
@@ -94,6 +96,7 @@
                   {{ con.city }}, {{ con.state }}
                 </p>
                 <p class="card-con_date mb-1 small">{{ con.con_date }}</p>
+                <b class="card-con_date mb-1 small"><i class="bi bi-star-fill"></i> {{ con.average_rating }} out of 5 Stars</b>
               </div>
             </div>
           </div>

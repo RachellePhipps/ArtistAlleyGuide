@@ -42,7 +42,7 @@
 
           <h5>{{ con.city }}, {{ con.state }}</h5>
           <p>{{ con.con_date }}</p>
-          <b><i class="bi bi-star-fill"></i> {{ con.average_rating }}</b> out of 5 Stars
+          <b><i class="bi bi-star-fill"></i> {{ con.average_rating }} out of 5 Stars</b>
           <p><a href="{{ con.website }}">{{ con.website }}</a></p>
           <p>{{ con.description }}</p>
           <div class="row">
@@ -108,41 +108,7 @@
       </div>
       <br />
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper
-        dapibus rutrum. Pellentesque consectetur sit amet augue a consectetur.
-        Nam viverra euismod nulla, ac mollis sem vulputate vel. Maecenas
-        scelerisque ante quis sapien sodales egestas. Pellentesque convallis
-        nunc sodales enim mollis tincidunt. Vestibulum sed purus ullamcorper,
-        lacinia diam eu, volutpat ante. Vivamus turpis tellus, ultricies nec
-        enim eget, scelerisque viverra ante. Suspendisse ac egestas nisl, at
-        sodales mauris. Integer eu laoreet ligula. In feugiat, sapien et
-        consequat eleifend, lectus ipsum posuere nulla, sit amet porta nunc
-        velit eget purus. Maecenas quis eros ac odio finibus imperdiet vel vitae
-        ipsum. Quisque auctor laoreet imperdiet. Ut lorem enim, aliquam ut dolor
-        quis, consectetur efficitur augue. In ut velit et erat porta rhoncus.
-        Praesent nisi dolor, porttitor in nunc eget, placerat aliquet metus.
-        Curabitur sodales et purus eget cursus. Interdum et malesuada fames ac
-        ante ipsum primis in faucibus. Fusce sed justo eu ipsum mattis dapibus
-        eu eget libero. Suspendisse potenti. Aliquam lacinia varius finibus. In
-        vehicula tincidunt gravida. Duis ut rhoncus est. Vestibulum at volutpat
-        est, vitae bibendum ex. Interdum et malesuada fames ac ante ipsum primis
-        in faucibus. Mauris ut volutpat ipsum, nec vestibulum purus. Integer
-        rutrum, est non molestie malesuada, sapien lectus efficitur ipsum, id
-        mollis eros metus tristique elit. Maecenas elementum felis vitae mi
-        pharetra bibendum. Donec vestibulum nibh placerat sapien bibendum, id
-        aliquam libero elementum. Aenean efficitur turpis vel posuere luctus.
-        Aliquam vel volutpat urna. Etiam in odio lacinia justo facilisis
-        tristique. Aliquam blandit, ex ac efficitur aliquam, arcu ligula
-        lobortis tellus, nec venenatis felis nisl sit amet orci. Nunc eleifend
-        fringilla metus ut ullamcorper. Pellentesque et elementum velit. Nam
-        ipsum enim, hendrerit sed semper in, euismod vel augue. Cras eget rutrum
-        libero, quis vestibulum lorem. Suspendisse potenti. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus. Suspendisse ut ipsum
-        orci. Maecenas semper tristique sapien sit amet condimentum. Suspendisse
-        eu ipsum et lorem iaculis efficitur. Quisque egestas mauris sit amet
-        erat finibus sodales. Maecenas mollis viverra neque, et feugiat ante
-        pharetra vel. Aenean non finibus ante. Integer vitae lorem a nulla
-        accumsan bibendum a sed diam.
+      {{ con.art_description }}
       </p>
 
       {% with con.images.all as imgs %}
@@ -197,47 +163,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <hr />
-
-  <div id="Convention-Center">
-    <h1>Convention Center</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper
-      dapibus rutrum. Pellentesque consectetur sit amet augue a consectetur. Nam
-      viverra euismod nulla, ac mollis sem vulputate vel. Maecenas scelerisque
-      ante quis sapien sodales egestas. Pellentesque convallis nunc sodales enim
-      mollis tincidunt. Vestibulum sed purus ullamcorper, lacinia diam eu,
-      volutpat ante. Vivamus turpis tellus, ultricies nec enim eget, scelerisque
-      viverra ante. Suspendisse ac egestas nisl, at sodales mauris. Integer eu
-      laoreet ligula. In feugiat, sapien et consequat eleifend, lectus ipsum
-      posuere nulla, sit amet porta nunc velit eget purus. Maecenas quis eros ac
-      odio finibus imperdiet vel vitae ipsum. Quisque auctor laoreet imperdiet.
-      Ut lorem enim, aliquam ut dolor quis, consectetur efficitur augue. In ut
-      velit et erat porta rhoncus. Praesent nisi dolor, porttitor in nunc eget,
-      placerat aliquet metus. Curabitur sodales et purus eget cursus. Interdum
-      et malesuada fames ac ante ipsum primis in faucibus. Fusce sed justo eu
-      ipsum mattis dapibus eu eget libero. Suspendisse potenti. Aliquam lacinia
-      varius finibus. In vehicula tincidunt gravida. Duis ut rhoncus est.
-      Vestibulum at volutpat est, vitae bibendum ex. Interdum et malesuada fames
-      ac ante ipsum primis in faucibus. Mauris ut volutpat ipsum, nec vestibulum
-      purus. Integer rutrum, est non molestie malesuada, sapien lectus efficitur
-      ipsum, id mollis eros metus tristique elit. Maecenas elementum felis vitae
-      mi pharetra bibendum. Donec vestibulum nibh placerat sapien bibendum, id
-      aliquam libero elementum. Aenean efficitur turpis vel posuere luctus.
-      Aliquam vel volutpat urna. Etiam in odio lacinia justo facilisis
-      tristique. Aliquam blandit, ex ac efficitur aliquam, arcu ligula lobortis
-      tellus, nec venenatis felis nisl sit amet orci. Nunc eleifend fringilla
-      metus ut ullamcorper. Pellentesque et elementum velit. Nam ipsum enim,
-      hendrerit sed semper in, euismod vel augue. Cras eget rutrum libero, quis
-      vestibulum lorem. Suspendisse potenti. Interdum et malesuada fames ac ante
-      ipsum primis in faucibus. Suspendisse ut ipsum orci. Maecenas semper
-      tristique sapien sit amet condimentum. Suspendisse eu ipsum et lorem
-      iaculis efficitur. Quisque egestas mauris sit amet erat finibus sodales.
-      Maecenas mollis viverra neque, et feugiat ante pharetra vel. Aenean non
-      finibus ante. Integer vitae lorem a nulla accumsan bibendum a sed diam.
-    </p>
   </div>
 
   <hr />
