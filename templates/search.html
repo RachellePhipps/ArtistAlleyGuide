@@ -18,7 +18,7 @@
       />
       <br />
       <!-- dates filters -->
-      <label for="start_date" class="form-label">Start Date</label>
+      <label for="start_date" class="form-label"><i class="bi bi-calendar-date"></i> Start Date</label>
       <input
         type="date"
         name="start_date"
@@ -28,13 +28,34 @@
       />
       <br />
 
-      <label for="end_date" class="form-label">End Date</label>
+      <label for="end_date" class="form-label"><i class="bi bi-calendar-date"></i> End Date</label>
       <input
         type="date"
         name="end_date"
         id="end_date"
         class="form-control"
         value="{{ request.GET.end_date }}"
+      />
+      <br/>
+
+      <!-- dates filters for applying -->
+      <label for="art_start_date" class="form-label"><i class="bi bi-calendar2-heart-fill"></i> Apply Start Date</label>
+      <input
+        type="date"
+        name="art_start_date"
+        id="art_start_date"
+        class="form-control"
+        value="{{ request.GET.art_start_date }}"
+      />
+      <br />
+
+      <label for="art_end_date" class="form-label"><i class="bi bi-calendar2-heart-fill"></i> Apply End Date</label>
+      <input
+        type="date"
+        name="art_end_date"
+        id="art_end_date"
+        class="form-control"
+        value="{{ request.GET.art_end_date }}"
       />
       <br/>
       
@@ -85,9 +106,10 @@
                 </div>
 
                 <p class="card-location mb-1 small">
-                  {{ con.city }}, {{ con.state }}
+                  <i class="bi bi-geo-alt-fill"></i> {{ con.city }}, {{ con.state }}
                 </p>
-                <p class="card-con_date mb-1 small">{{ con.con_date }}</p>
+                <p class="card-con_date mb-1 small"><i class="bi bi-calendar-date"></i> {{ con.con_date }}</p>
+                <p class="card-con_date mb-1 small"><i class="bi bi-calendar2-heart-fill"></i> {{ con.apply_date }}</p>
                 <b class="card-con_date mb-1 small"><i class="bi bi-star-fill"></i> {{ con.average_rating }} out of 5 Stars</b>
               </div>
             </div>

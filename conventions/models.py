@@ -78,7 +78,7 @@ class Convention(models.Model):
     
     # average rating
     def average_rating(self):
-        return f"{self.rating_total / self.rating_count:.1f}" if self.rating_count > 0 else 0
+        return int(self.rating_total / self.rating_count) if self.rating_count > 0 else 0
     
 # Convention images
 class ConventionImage(models.Model):

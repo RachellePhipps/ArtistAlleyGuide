@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
 
+
 # view for home page
 def home(request):
 
@@ -91,11 +92,11 @@ def search_view(request):
     query = request.GET.get('q')  
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
-    min_value = request.GET.get('min_value')
-    max_value = request.GET.get('max_value')
-
-
+    art_start_date = request.GET.get('art_start_date')
+    art_end_date = request.GET.get('art_end_date')
+    
     results = Convention.objects.all()
+
     
     # filters
     if query:
@@ -104,7 +105,10 @@ def search_view(request):
         results = results.filter(con_date__gte=start_date)
     if end_date:
         results = results.filter(con_date__lte=end_date)
-
+    if art_start_date:
+        results = results.filter(apply_date__gte=art_start_date)
+    if art_end_date:
+        results = results.filter(apply_date__lte=art_end_date)
 
     context = {
         'results': results,
