@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<!--upcoming cards-->
+<!--upcoming cons-->
 <div class="container-fluid con0">
   <div class="container upcoming-con">
     <h1>Upcoming conventions</h1>
@@ -104,7 +104,7 @@
     <h1>Upcoming Anime conventions</h1>
     <p>Looking for the latest anime conventions?</p>
 
-    <div id="conCarousel" class="carousel slide">
+    <div id="conCarousel1" class="carousel slide">
       <div class="carousel-inner">
         {% for con in upcoming_ani_cons %} {% if forloop.counter0|divisibleby:3 %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
@@ -165,7 +165,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel1"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon"></span>
@@ -173,7 +173,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel1"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon"></span>
@@ -188,7 +188,7 @@
     <h1>Upcoming General conventions</h1>
     <p>Looking for the latest general conventions?</p>
 
-    <div id="conCarousel" class="carousel slide">
+    <div id="conCarousel2" class="carousel slide">
       <div class="carousel-inner">
         {% for con in upcoming_gen_cons %} {% if forloop.counter0|divisibleby:3 %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
@@ -249,7 +249,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel2"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon"></span>
@@ -257,7 +257,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel2"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon"></span>
@@ -272,7 +272,7 @@
     <h1>Upcoming Horror conventions</h1>
     <p>Looking for the latest horror conventions?</p>
 
-    <div id="conCarousel" class="carousel slide">
+    <div id="conCarousel3" class="carousel slide">
       <div class="carousel-inner">
         {% for con in upcoming_hor_cons %} {% if forloop.counter0|divisibleby:3 %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
@@ -333,7 +333,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel3"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon"></span>
@@ -341,7 +341,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel3"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon"></span>
@@ -356,7 +356,7 @@
     <h1>All conventions</h1>
     <p>See all conventions</p>
 
-    <div id="conCarousel" class="carousel slide">
+    <div id="conCarousel4" class="carousel slide">
       <div class="carousel-inner">
         {% for con in alphabet_cons %} {% if forloop.counter0|divisibleby:3 %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
@@ -420,7 +420,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel4"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon"></span>
@@ -428,7 +428,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#conCarousel"
+        data-bs-target="#conCarousel4"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon"></span>

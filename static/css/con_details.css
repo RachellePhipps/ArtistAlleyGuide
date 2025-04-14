@@ -32,11 +32,11 @@
 
 .cons-nav .navbar-brand,
 .cons-nav .nav-link {
-  color: black !important; /* override Bootstrap defaults */
+  color: black !important;
 }
 
 .cons-nav .nav-link:hover {
-    color: #ff6600 !important; /* highlight or accent color */
+    color: #ff6600 !important; 
   }
   
 .overview  {

@@ -4,6 +4,7 @@ from conventions import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+# urls for each view to show correct html
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")), 

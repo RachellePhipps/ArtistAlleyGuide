@@ -6,10 +6,10 @@
 
 .full {
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), /* Box pattern */
+    radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
     linear-gradient(white, white, white, white, white, var(--fairy-tale));
-    background-size: 20px 20px, cover; /* Box size, gradient covers entire area */
-    background-position: center; /* Center the pattern */
+    background-size: 20px 20px, cover; 
+    background-position: center; 
 }
 
 

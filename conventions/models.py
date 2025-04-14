@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 
-
+# have a default image for convention top
 def default_image_urls():
     return ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png"]
 
@@ -61,11 +61,13 @@ class Convention(models.Model):
     rating_total = models.IntegerField(default=0)
     rating_count = models.IntegerField(default=0)
 
-    slug = models.SlugField(unique=True, blank=True)  # For URL-friendly name
+    # For URL-friendly name
+    slug = models.SlugField(unique=True, blank=True)  
 
     # Favorites relationship
     favorited_by = models.ManyToManyField(User, related_name='favorite_cons', blank=True)
 
+    # define saving a slug for a url
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
@@ -74,8 +76,9 @@ class Convention(models.Model):
     def __str__(self):
         return self.name
     
+    # average rating
     def average_rating(self):
-        return self.rating_total / self.rating_count if self.rating_count > 0 else 0
+        return f"{self.rating_total / self.rating_count:.1f}" if self.rating_count > 0 else 0
     
 # Convention images
 class ConventionImage(models.Model):

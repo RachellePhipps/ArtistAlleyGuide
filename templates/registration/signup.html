@@ -36,25 +36,28 @@
                         <div class="d-flex align-items-center mb-3 pb-1">
                           <i
                             class="fas fa-cubes fa-2x me-3"
-                            style="color: #ff6219"
+                            style="color:  #e66b77"
                           ></i>
-                          <span class="h1 fw-bold mb-0">Logo</span>
+                          <span class="h1 fw-bold mb-0">Artist Alley Guide</span>
                         </div>
 
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
                           Create your account
                         </h5>
                         
+                        <!-- Username -->
                         <div class="mb-3">
                           <label for="id_username" class="form-label">Username</label>
                           {{ form.username|add_class:"form-control" }}
                         </div>
                         
+                        <!-- password -->
                         <div class="mb-3">
                           <label for="id_password1" class="form-label">Password</label>
                           {{ form.password1|add_class:"form-control" }}
                         </div>
                         
+                        <!-- confirm password -->
                         <div class="mb-3">
                           <label for="id_password2" class="form-label">Confirm Password</label>
                           {{ form.password2|add_class:"form-control" }}
