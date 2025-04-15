@@ -2,7 +2,7 @@
 
 
 ### What is "Artist Alley Guide"?
-Artist Alley Guide is a website designed to help artists looking for conventions to sell their artwork in an artist alley. It contains information about around 40-50 conventions currently and their details regarding acceptance to sell.
+Artist Alley Guide is a website designed to help artists looking for conventions to sell their artwork in an artist alley. It contains information about around 30 conventions currently and their details regarding acceptance to sell.
 
 ![Image](https://github.com/user-attachments/assets/5cdfe240-5453-4660-96ce-1f9825d121eb)
 
@@ -11,8 +11,7 @@ This website allows users to search for a convention by name, date, and number o
 
 ![Image](https://github.com/user-attachments/assets/7175a1e5-97dd-4507-9996-ffe84d1066f6)
 
-![Image](https://github.com/user-attachments/assets/2a808716-1248-4f90-a844-56cbf89ef492)
-
+![Image](https://github.com/user-attachments/assets/c158a224-b6a3-459b-b46f-620d1772a51e)
 ### What is an "artist alley"?
 An artist alley is a designated area at conventions for artists to sell their own artwork and merchandise. This can range from digital art, handcrafts, prints, apparel, and much more. Usually many artists have a mixture of original work and fan-art from existing media.
 
@@ -20,3 +19,4 @@ An artist alley is a designated area at conventions for artists to sell their ow
 Anime Expo 2024 Website
 
 ### Demo:
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_XzZPQO8GPY/0.jpg)](https://www.youtube.com/watch?v=_XzZPQO8GPY)
