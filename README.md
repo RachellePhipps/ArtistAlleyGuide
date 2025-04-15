@@ -2,7 +2,7 @@
 
 
 ### What is "Artist Alley Guide"?
-Artist Alley Guide is a website designed to help artists looking for conventions to sell their artwork in an artist alley. It contains information about around 40-50 conventions currently and their details regarding acceptance to sell.
+Artist Alley Guide is a website designed to help artists looking for conventions to sell their artwork in an artist alley. It contains information about around 30 conventions currently and their details regarding acceptance to sell.
 
 ![Image](https://github.com/user-attachments/assets/5cdfe240-5453-4660-96ce-1f9825d121eb)
 
