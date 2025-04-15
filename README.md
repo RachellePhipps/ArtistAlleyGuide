@@ -11,8 +11,7 @@ This website allows users to search for a convention by name, date, and number o
 
 ![Image](https://github.com/user-attachments/assets/7175a1e5-97dd-4507-9996-ffe84d1066f6)
 
-![Image](https://github.com/user-attachments/assets/2a808716-1248-4f90-a844-56cbf89ef492)
-
+![Image](https://github.com/user-attachments/assets/c158a224-b6a3-459b-b46f-620d1772a51e)
 ### What is an "artist alley"?
 An artist alley is a designated area at conventions for artists to sell their own artwork and merchandise. This can range from digital art, handcrafts, prints, apparel, and much more. Usually many artists have a mixture of original work and fan-art from existing media.
 
