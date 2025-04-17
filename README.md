@@ -92,6 +92,14 @@ If you do not have npm, follow the link below to install:
 
 https://docs.npmjs.com/cli/v8/commands/npm-install
 
+
+#### Running the Server
+
+To run the server, make sure you are in the ArtistAlleyGuide Project folder and *manage.py* is present in the file path. Use the following to start the local development server:
+```
+python manage.py runserver
+```
+
 ---
 
 ### Project Structure 
