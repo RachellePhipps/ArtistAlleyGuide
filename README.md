@@ -7,7 +7,7 @@ Artist Alley Guide is a website designed to help artists looking for conventions
 ![Image](https://github.com/user-attachments/assets/5cdfe240-5453-4660-96ce-1f9825d121eb)
 
 ### How can I utilize this site?
-This website allows users to search for a convention by name, date, and number of attendees. Clicking on a convention will take the user to a special page for that convention detailing its location, about the convention itself, how to apply, and more. Logged-in users are able to leave comments and ratings on conventions they have attended as well as favorite conventions for later.
+This website allows users to search for a convention by name, convention date, and artist alley application date. Clicking on a convention will take the user to a special page for that convention detailing its location, about the convention itself, how to apply, and more. Logged-in users are able to leave comments and ratings on conventions they have attended as well as favorite conventions for later.
 
 ![Image](https://github.com/user-attachments/assets/7175a1e5-97dd-4507-9996-ffe84d1066f6)
 
