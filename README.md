@@ -29,16 +29,20 @@ Anime Expo 2024 Website
 ### Installing 
 
 To install and use, you will need **python** on your device due to Django being python-based.
+
 https://www.python.org/downloads/
 
 Next, it is suggested that you have python virtual environment to keep the intalled libaries in. 
+
 https://docs.python.org/3/library/venv.html
 
 As for libraries, you will need to install **Django, django-widget-tweaks, Pillow, and Bootstrap.**
 
 
 #### Django 
+
 https://www.djangoproject.com/download/
+
 Follow the above to install Django onto your device.
 
 Mac/Linux:
@@ -52,6 +56,7 @@ py -m pip install Django
 ```
 
 #### django-widget-tweaks
+
 https://pypi.org/project/django-widget-tweaks/
 
 Installing using pip:
@@ -60,6 +65,7 @@ pip install django-widget-tweaks
 ```
 
 #### Pillow
+
 https://pypi.org/project/pillow/
 
 Installing using pip:
@@ -69,6 +75,7 @@ pip install pillow
 
 #### Bootstrap
 https://getbootstrap.com/docs/4.0/getting-started/download/
+
 Follow the above to install Bootstrap onto your device.
 
 If you have npm available, use the following to install:
@@ -77,6 +84,7 @@ npm install bootstrap
 ```
 
 If you do not have npm, follow the link below to install:
+
 https://docs.npmjs.com/cli/v8/commands/npm-install
 
 ---
