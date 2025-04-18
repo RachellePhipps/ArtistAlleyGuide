@@ -1,6 +1,6 @@
-@import url('./colors.css');
+@import url('../colors.css');
 
 .testing {
-    background-color:  #F3C6D3;
+    background-color:  var(--bubble-gum);
 }
 
