@@ -132,3 +132,22 @@
   align-items: center;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; 
+  z-index: 2;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  pointer-events: auto; /
+}
+
+.carousel .carousel-inner {
+  padding: 0 2rem; 
+}
+
+.carousel .card {
+  z-index: 1;
+  position: relative;
+}
